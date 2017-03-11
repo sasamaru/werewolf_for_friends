@@ -4,3 +4,29 @@
 <p><%= @village.describe %></p>
 
 <%= link_to "村一覧へ", root_path %>
+
+<ul>
+	<p>メンバー一覧</p>
+	<% @village.players.each do |p| %>
+		<li>
+			<%= p.name %>
+			<% if p.image? %>
+				<%= image_tag p.image.thumb.url %>
+			<% else %>
+				<%= image_tag '' %>
+			<% end %>
+			<%= link_to "村を抜ける", village_player_path(@village.id, p.id), method: :delete, data: { confirm: "本当に抜けますか？"} %>
+		</li>
+	<% end %>
+
+	<li>
+		<%= form_for [@village, @village.players.build] do |f| %>
+			<p>名前：<%= f.text_field :name %></p>
+			<p>
+				<%=f.label :image,"アイコン画像" %>
+      			<%= f.file_field :image %>
+			</p>
+			<%= f.submit %>
+		<% end %>
+	</li>
+</ul>

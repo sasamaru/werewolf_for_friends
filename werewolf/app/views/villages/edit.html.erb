@@ -1,5 +1,5 @@
-<h1>新しい村</h1>
-<%= link_to "（やっぱり止める）", root_path %>
+<h1><%= @village.name %>(edit)</h1>
+<%= link_to "（やっぱり止める）", village_path(@village.id) %>
 
 <%= form_for @village do |f| %>
 	<p>

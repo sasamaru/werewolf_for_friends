@@ -13,10 +13,26 @@ class VillagesController < ApplicationController
 		@village = Village.new
 	end
 
+	def edit
+		@village = Village.find(params[:id])
+	end
+
 	def create
 		@village = Village.new(village_params)
-		@village.save
-		redirect_to village_path(@village.id)
+		if @village.save
+			redirect_to village_path(@village.id)
+		else
+			render 'new'
+		end
+	end
+
+	def update
+		@village = Village.find(params[:id])
+		if @village.update(village_params)
+			redirect_to village_path(@village.id)
+		else
+			render 'edit'
+		end
 	end
 
 	private

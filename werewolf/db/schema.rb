@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170311135942) do
+ActiveRecord::Schema.define(version: 20170311185609) do
+
+  create_table "players", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "village_id"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["village_id"], name: "index_players_on_village_id"
+  end
 
   create_table "villages", force: :cascade do |t|
     t.string   "name"

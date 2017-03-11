@@ -3,6 +3,12 @@ class VillagesController < ApplicationController
 	def index
 		@villages = Village.all
 	end
+
+	def show
+		#params[:id]はroutesで受け取った値になる
+		@village = Village.find(params[:id])
+	end
+
 	def new
 		@village = Village.new
 	end

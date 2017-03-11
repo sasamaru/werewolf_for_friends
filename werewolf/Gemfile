@@ -5,6 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#画像関連のgem
+gem 'carrierwave'
+gem 'rmagick'
+#rmagick installできない問題
+#http://kno75.hatenablog.com/entry/2017/01/21/215709
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'

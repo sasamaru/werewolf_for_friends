@@ -2,6 +2,10 @@
 
 <ul>
 	<% @villages.each do |v| %>
-	<li><h3><%= v.name %></h3></li>
+	<li><h3><%= link_to v.name, village_path(v.id) %></h3></li>
 	<% end %>
 </ul>
+
+<p>
+<%= link_to "村を作る", new_village_path %>
+</p>

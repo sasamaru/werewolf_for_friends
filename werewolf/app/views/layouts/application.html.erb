@@ -7,6 +7,10 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <div class="header">
+  	<%# image_tagでapp/assets/imagesの画像が自動で呼び出される %>
+  	<%= image_tag "common/header_002.png" %>
+  </div>
 
   <body>
     <%= yield %>

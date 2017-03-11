@@ -1,0 +1,19 @@
+<h1>新しい村</h1>
+<%= link_to "（やっぱり止める）", root_path %>
+
+<%= form_for @village do |f| %>
+	<p>村の名前：<%= f.text_field :name %></p>
+	<p>説明：<%= f.text_area :describe %></p>
+	<p>開始時間：<%# f.datetime_field %></p>
+	<p id="jsClickAppearTrigger">▼ --- 詳細設定 ---</p>
+	<div class="jsClickAppear">
+	<p>1日の長さ：<%= f.text_field :day %></p>
+	<p>初日の無言時間：<%= f.text_field :silent %></p>
+	<p>参加者制限のパスワードを設ける：<%= f.check_box :lock %></p>
+	<p>アクセスコード：<%= f.text_field :code %></p>
+	<p>最大人数：<%= f.text_field :number %></p>
+	<p>役職：<%= f.datetime_field :job %></p>
+	<p>参加者以外に閲覧を許可：<%= f.check_box :secret %></p>
+	</div>
+<%= f.submit %>
+<% end %>

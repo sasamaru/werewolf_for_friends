@@ -1,6 +1,6 @@
 class VillagesController < ApplicationController
 
-	before_action :set_village, only: :[:show, :edit, :update, :destroy]
+	before_action :set_village, only: [ :show, :edit, :update, :destroy]
 	def index
 		@villages = Village.all
 	end

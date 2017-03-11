@@ -1,4 +1,5 @@
 class Village < ApplicationRecord
+	has_many :players
 	has_many :comments
 	#必須項目の設定
 	validates :name,

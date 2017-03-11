@@ -1,12 +1,11 @@
 class VillagesController < ApplicationController
 
+	before_action :set_village, only: :[:show, :edit, :update, :destroy]
 	def index
 		@villages = Village.all
 	end
 
 	def show
-		#params[:id]はroutesで受け取った値になる
-		@village = Village.find(params[:id])
 	end
 
 	def new
@@ -14,7 +13,6 @@ class VillagesController < ApplicationController
 	end
 
 	def edit
-		@village = Village.find(params[:id])
 	end
 
 	def create
@@ -27,7 +25,6 @@ class VillagesController < ApplicationController
 	end
 
 	def update
-		@village = Village.find(params[:id])
 		if @village.update(village_params)
 			redirect_to village_path(@village.id)
 		else
@@ -36,7 +33,6 @@ class VillagesController < ApplicationController
 	end
 
 	def destroy
-		@village = Village.find(params[:id])
 		@village.destroy
 		redirect_to root_path
 	end
@@ -44,5 +40,9 @@ class VillagesController < ApplicationController
 	private
 		def village_params
 			params[:village].permit(:name, :describe, :day, :silent, :lock, :code, :number, :job, :secret)
+		end
+
+		def set_village
+			@village = Village.find(params[:id])
 		end
 end

@@ -1,5 +1,6 @@
 <h1><%= @village.name %></h1>
 <%= link_to "編集", edit_village_path(@village.id) %>
+<%= link_to "村を消す", village_path(@village.id), method: :delete, data: { confirm: "本当に廃村にしますか？"} %>
 <p><%= @village.describe %></p>
 
 <%= link_to "村一覧へ", root_path %>

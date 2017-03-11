@@ -35,6 +35,12 @@ class VillagesController < ApplicationController
 		end
 	end
 
+	def destroy
+		@village = Village.find(params[:id])
+		@village.destroy
+		redirect_to root_path
+	end
+
 	private
 		def village_params
 			params[:village].permit(:name, :describe, :day, :silent, :lock, :code, :number, :job, :secret)
